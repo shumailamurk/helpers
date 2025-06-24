@@ -15,6 +15,7 @@ export const Dashboard = () => {
   return (
     <div>
       <HeroDash userName={user?.name || ''} />
+      
       {/* Baaki sections */}
     </div>
   )
