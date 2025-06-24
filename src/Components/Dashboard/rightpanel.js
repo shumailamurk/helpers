@@ -30,18 +30,18 @@ const RightPanel = ({ onClose }) => {
       transition-transform duration-300`}>
       <div className="flex items-center justify-between px-2 py-2 border-b border-gray-200">
         <div>
-          <div className="text-[9px] text-gray-400">Today</div>
-          <div className="text-[12px] text-gray-500 font-medium mt-1">{today.day}</div>
-          <div className="text-[11px] text-gray-400 mt-1">{today.date}</div>
+          <div className="text-xs text-gray-400">Today</div>
+          <div className="text-base text-gray-500 font-medium mt-1">{today.day}</div>
+          <div className="text-sm text-gray-400 mt-1">{today.date}</div>
         </div>
-        <button onClick={onClose} className="text-gray-400 hover:text-black text-base font-bold">&times;</button>
+        <button onClick={onClose} className="text-gray-400 hover:text-black text-lg font-bold">&times;</button>
       </div>
-      <div className="flex-1 overflow-y-auto px-2 py-2">
-        <div className="text-[8px] text-gray-400 mb-1">Notifications</div>
+      <div className="flex-1 overflow-y-auto px-2 py-2 mt-4">
+        <div className="text-xs text-gray-400 mb-2">Notifications</div>
         {dummyNotifications.map((n, i) => (
-          <div key={i} className="mb-2">
-            <div className="font-semibold text-[10px] text-gray-800">{n.user}</div>
-            <div className="text-[8px] text-gray-500 mt-0.5">{n.message}</div>
+          <div key={i} className="mb-4">
+            <div className="font-semibold text-sm text-gray-800 ml-3">{n.user}</div>
+            <div className="text-xs text-gray-500 mt-1 ml-3">{n.message}</div>
           </div>
         ))}
       </div>

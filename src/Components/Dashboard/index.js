@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Topbar from './topbar'
-import RightPanel from './rightpanel'
 import HeroDash from './herodash';
 
 export const Dashboard = () => {
@@ -16,8 +14,6 @@ export const Dashboard = () => {
 
   return (
     <div>
-      <Topbar onOpenPanel={() => setIsPanelOpen(true)} user={user} />
-      {isPanelOpen && <RightPanel onClose={() => setIsPanelOpen(false)} />}
       <HeroDash userName={user?.name || ''} />
       {/* Baaki sections */}
     </div>

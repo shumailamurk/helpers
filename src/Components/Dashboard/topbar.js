@@ -14,9 +14,9 @@ const Topbar = ({ onOpenPanel }) => {
   }, []);
 
   return (
-    <div className="w-full flex items-center bg-white px-4 py-4 min-h-[70px] shadow-md">
+    <div className="w-full flex items-center bg-white px-4 py-4 min-h-[80px] shadow-md rounded-lg">
       {/* Left: Star icon and Profile group */}
-      <div className="flex items-center gap-7 ml-72">
+      <div className="flex items-center gap-7 ml-8">
         <StarFilled className="text-yellow-400 text-xl" />
         {user && (
           <div className="flex items-center gap-1 relative ml-1">

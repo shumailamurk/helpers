@@ -21,7 +21,7 @@ function Sidebar() {
     <div className={`fixed left-0 top-0 bg-white h-screen ${collapsed ? 'w-[68px]' : 'w-[280px]'} flex flex-col overflow-y-auto hide-scrollbar transition-all duration-300 shadow-lg`}>
       {/* Sidebar Header */}
       {collapsed ? (
-        <div className="w-full bg-[#3F51B5] flex flex-col items-center py-4">
+        <div className="w-full bg-[#3F51B5] flex flex-col items-center py-4 sticky top-0 z-20">
           <img src="/helper_logo_mini.png" alt="Logo" className="h-12 w-12 object-contain mb-2" />
           <MenuOutlined
             className="text-white text-lg cursor-pointer"
@@ -29,7 +29,7 @@ function Sidebar() {
           />
         </div>
       ) : (
-        <div className="w-full bg-[#3F51B5] flex flex-row items-center justify-between px-6 py-4">
+        <div className="w-full bg-[#3F51B5] flex flex-row items-center justify-between px-6 py-4 sticky top-0 z-20">
           <div className="flex items-center pt-4 -mx-3">
             <img src="/helper_logo_mini.png" alt="Logo" className="h-16 w-16 object-contain" />
             <span className="text-white text-4xl font-bold hidden md:block">elpers</span>

@@ -43,12 +43,12 @@ const StatCard = ({ title, count, icon, bg }) => (
 );
 
 const HeroDash = ({ userName }) => (
-  <div className="w-full mt-24 flex flex-col" style={{ marginLeft: 250 }}>
-    <div className="w-full flex justify-start">
-      <div className="text-lg font-medium mb-8 ml-20">Welcome {userName}</div>
+  <div className="w-full mt-32 flex flex-col">
+    <div className="w-full flex justify-start mt-3 mb-12">
+      <div className="text-base font-normal ml-20">Welcome {userName}</div>
     </div>
-    <div className="w-full flex justify-end">
-      <div className="flex gap-8 mr-20">
+    <div className="w-full flex justify-start">
+      <div className="flex gap-10 ml-20">
         {cards.map((card, i) => (
           <StatCard key={i} {...card} />
         ))}
