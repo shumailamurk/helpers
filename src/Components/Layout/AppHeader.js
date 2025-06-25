@@ -6,22 +6,27 @@ const { Header } = Layout;
 
 const AppHeader = () => {
   return (
-    <Header className="shadow-sm flex items-center h-16 sticky top-0 z-10 bg-white justify-start px-0">
-      {/* Left: Logo + elpers + Select */}
-      <div className="flex items-center w-full">
+    <Header className="shadow-sm flex items-center h-16 sticky top-0 z-10 bg-white justify-between px-0">
+      {/* Left: Logo + elpers */}
+      <div className="flex items-center">
         <img
           src={logo}
           alt="logo"
-          className="h-10 w-10"
+          className="h-12 w-12 mt-2 ml-0"
         />
-        <span className="ml-0.5 text-2xl font-bold tracking-tight" style={{ letterSpacing: '-2px' }}>
+        <span
+          className="text-3xl font-extrabold tracking-tight ml-0"
+          style={{ letterSpacing: '-2px' }}
+        >
           elpers
         </span>
+      </div>
+      {/* Right: Select (search bar) */}
+      <div className="flex items-center">
         <Select
           defaultValue="Workwise Helpers"
           style={{
             width: 200,
-            marginLeft: 24,
             borderColor: 'var(--theme-color)',
             color: 'var(--theme-color)',
             boxShadow: 'none',

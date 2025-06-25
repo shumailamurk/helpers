@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AppSidebar from './Components/Layout/AppSidebar';
 import AppHeader from './Components/Layout/AppHeader';
 import { ThemeProvider } from './ThemeContext';
+import Categories from './Components/categories/Categories';
 
 function Placeholder({ title }) {
   return (
@@ -23,7 +24,7 @@ function App() {
             <AppHeader />
             <Routes>
               <Route path="/dashboard" element={<Placeholder title="Dashboard" />} />
-              <Route path="/categories" element={<Placeholder title="Categories" />} />
+              <Route path="/categories" element={<Categories/>} />
               <Route path="/services" element={<Placeholder title="Services" />} />
               <Route path="/pricelist" element={<Placeholder title="Price List" />} />
               <Route path="/jobrequests" element={<Placeholder title="Job Requests" />} />
