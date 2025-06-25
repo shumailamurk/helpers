@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import HeroDash from './herodash';
+import CallsChart from './CallsChart';
 
-export const Dashboard = () => {
+const Dashboard = () => {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -15,8 +16,9 @@ export const Dashboard = () => {
   return (
     <div>
       <HeroDash userName={user?.name || ''} />
-      
+      <CallsChart />
       {/* Baaki sections */}
     </div>
   )
 }
+export default Dashboard;

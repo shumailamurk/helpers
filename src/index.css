@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ant Design Menu selected item override with theme color, using Tailwind where possible */
+.ant-menu-light .ant-menu-item-selected,
+.ant-menu-light .ant-menu-item-active {
+  @apply rounded-lg shadow-none border-none;
+  background: rgba(var(--theme-color-rgb, 100,196,178), 0.12) !important;
+  color: var(--theme-color) !important;
+}
+.ant-menu-light .ant-menu-item-selected .anticon,
+.ant-menu-light .ant-menu-item-active .anticon {
+  color: var(--theme-color) !important;
+}
+.ant-menu-light .ant-menu-item-selected:hover,
+.ant-menu-light .ant-menu-item-active:hover {
+  background: rgba(var(--theme-color-rgb, 100,196,178), 0.12) !important;
+  color: var(--theme-color) !important;
+}

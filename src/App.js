@@ -1,46 +1,58 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './Components/Layout';
+import AppSidebar from './Components/Layout/AppSidebar';
+import AppHeader from './Components/Layout/AppHeader';
+import { ThemeProvider } from './ThemeContext';
 
-import './App.css';
-import { Dashboard } from './Components/Dashboard/index';
-import { Categories } from './Components/Categories/categories';
-import { Service } from './Components/Services/services';
-import { Pricelist } from './Components/Pricelist/pricelist';
-import { JobRequest } from './Components/jobRequest/jobRequest';
-import { Invoices } from './Components/Invoices/Invoices';
-import { NetAmount } from './Components/NetAmount/netAmount';
-import { LeadLogs } from './Components/LeadLogs/leadLogs';
-import { Users } from './Components/Users/users';
-import { Advertisements } from './Components/Advertisements/Advertisements';
-import { Chats } from './Components/Chats/Chats';
-import { Payments } from './Components/Payments/payments';
-import { Workers } from './Components/Workers/workers';
-import { Customers } from './Components/Customers/Customers';
-import { ServiceRequest } from './Components/ServiceRequests/ServiceRequests';
+function Placeholder({ title }) {
+  return (
+    <div style={{ padding: 32 }}>
+      <h2>{title}</h2>
+      <p>This is the {title} page.</p>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Categories" element={<Categories />} />
-          <Route path="/Services" element={<Service/>} />
-          <Route path="/Pricelist" element={<Pricelist />} />
-          <Route path="/JobRequests" element={<JobRequest />} />
-          <Route path="/ServiceRequest" element={<ServiceRequest/>} />
-          <Route path="/Payments" element={<Payments />} />
-          <Route path="/Invoices" element={<Invoices />} />
-          <Route path="/NetAmount" element={<NetAmount />} />
-          <Route path="/LeadLogs" element={<LeadLogs />} />
-          <Route path="/Chats" element={<Chats/>} />
-          <Route path="/Users" element={<Users />} />
-          <Route path="/Workers" element={<Workers />} />
-          <Route path="/Customers" element={<Customers/>} />
-          <Route path="/Advertisements" element={<Advertisements />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <div style={{ display: 'flex' }}>
+          <AppSidebar />
+          <div style={{ flex: 1 }}>
+            <AppHeader />
+            <Routes>
+              <Route path="/dashboard" element={<Placeholder title="Dashboard" />} />
+              <Route path="/categories" element={<Placeholder title="Categories" />} />
+              <Route path="/services" element={<Placeholder title="Services" />} />
+              <Route path="/pricelist" element={<Placeholder title="Price List" />} />
+              <Route path="/jobrequests" element={<Placeholder title="Job Requests" />} />
+              <Route path="/servicerequests" element={<Placeholder title="Service Requests" />} />
+              <Route path="/payments" element={<Placeholder title="Payments" />} />
+              <Route path="/invoices" element={<Placeholder title="Invoices" />} />
+              <Route path="/netamount" element={<Placeholder title="Net Amount" />} />
+              <Route path="/leadlogs" element={<Placeholder title="Lead Logs" />} />
+              <Route path="/chats" element={<Placeholder title="Chats" />} />
+              <Route path="/users" element={<Placeholder title="Users" />} />
+              <Route path="/workers" element={<Placeholder title="Workers" />} />
+              <Route path="/customers" element={<Placeholder title="Customers" />} />
+              <Route path="/advertisements" element={<Placeholder title="Advertisements" />} />
+              {/* Administration Section */}
+              <Route path="/campaigns" element={<Placeholder title="Campaigns" />} />
+              <Route path="/surveyforms" element={<Placeholder title="Survey Forms" />} />
+              <Route path="/twcharges" element={<Placeholder title="TW Charges" />} />
+              <Route path="/skills" element={<Placeholder title="Skills" />} />
+              <Route path="/areas" element={<Placeholder title="Areas" />} />
+              <Route path="/company" element={<Placeholder title="Company" />} />
+              <Route path="/version" element={<Placeholder title="Version" />} />
+              <Route path="/invoicemessage" element={<Placeholder title="Invoice Message" />} />
+              {/* Default route */}
+              <Route path="*" element={<Placeholder title="Dashboard" />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
