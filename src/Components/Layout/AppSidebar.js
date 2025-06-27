@@ -19,6 +19,7 @@ import {
 } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme, themeColors } from '../../ThemeContext';
+import logo from '../../assests/helper_logo_mini.png';
 
 const { Sider } = Layout;
 const { Title } = Typography;
@@ -170,10 +171,17 @@ const AppSidebar = () => {
       onCollapse={setCollapsed}
       style={{ minHeight: '100vh', background: '#fff', boxShadow: '2px 0 8px rgba(0,0,0,0.08)' }}
     >
+      <div className={`flex items-center w-full ${collapsed ? 'justify-center pt-6 pb-2' : 'justify-start pt-6 pb-2 pl-6 pr-4'} mb-2`}>
+        <img src={logo} alt="logo" className={`h-10 w-10 ${collapsed ? '' : ''}`} />
+        {!collapsed && (
+          <span className="text-2xl font-extrabold tracking-tight ml-0.5" style={{ letterSpacing: '-2px' }}>
+            elpers
+          </span>
+        )}
+      </div>
       <div
-        className={`flex items-center w-full ${collapsed ? 'justify-center pt-8 pb-2' : 'justify-between pt-8 pb-2 pl-6 pr-4'}`}
+        className={`flex items-center w-full ${collapsed ? 'justify-center pt-2 pb-2' : 'justify-between pt-2 pb-2 pl-6 pr-4'}`}
       >
-        {!collapsed && <Title level={5} style={{ margin: 0, color: '#888' }}>Theme</Title>}
         <Button
           type="text"
           icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -181,6 +189,11 @@ const AppSidebar = () => {
           style={{ fontSize: 20 }}
         />
       </div>
+      {!collapsed && (
+        <div className="pl-6 mb-4">
+          <span className="text-xs text-gray-400 uppercase tracking-wider">Theme</span>
+        </div>
+      )}
       <div style={{ padding: collapsed ? '0 0 16px 0' : '0 24px 16px 24px', display: 'flex', justifyContent: collapsed ? 'center' : 'flex-start' }} className="mb-8 mt-4">
         {!collapsed ? (
           <Select

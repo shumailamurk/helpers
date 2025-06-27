@@ -4,9 +4,9 @@ const ThemeContext = createContext();
 
 export const themeColors = [
   { label: 'Teal', value: 'rgb(100, 196, 178)' },
-  { label: 'Blue', value: 'rgb(59, 130, 246)' },
+  { label: 'Blue', value: 'rgb(82, 107, 177)' },
   { label: 'Purple', value: 'rgb(139, 92, 246)' },
-  { label: 'Pink', value: 'rgb(236, 72, 153)' },
+  { label: 'Pink', value: 'rgb(232, 19, 123)' },
   { label: 'Yellow', value: 'rgb(253, 224, 71)' },
 ];
 
