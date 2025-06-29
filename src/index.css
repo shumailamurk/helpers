@@ -18,3 +18,19 @@
   background: rgba(var(--theme-color-rgb, 100,196,178), 0.12) !important;
   color: var(--theme-color) !important;
 }
+
+.custom-rounded-drawer .ant-drawer-content {
+  border-top-left-radius: 2rem !important;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Hide all scrollbars but allow touch scrolling */
+body, html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  overflow: auto !important;
+}
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+  display: none;
+}

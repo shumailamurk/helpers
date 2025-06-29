@@ -12,7 +12,7 @@ const Categories = () => {
       >
         Categories
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 justify-items-center">
         {data.map(item => (
           <CardHandling key={item.name} name={item.name} image={item.image} subCategories={item.subCategories || []} className="w-72" />
         ))}

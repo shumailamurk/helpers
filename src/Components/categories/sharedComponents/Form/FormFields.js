@@ -1,7 +1,10 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, FileTextOutlined, NumberOutlined } from '@ant-design/icons';
-import { useTheme } from '../../../../ThemeContext';
+import { useTheme } from '../../../../../src/ThemeContext';
+
+import 'antd/dist/reset.css';
+import '../../../../../src/index.css';
 
 const { TextArea } = Input;
 
@@ -29,7 +32,7 @@ const FormFields = ({ cardData }) => {
         rules={[{ required: true }]}
         className="mb-5"
       >
-        <Input prefix={<NumberOutlined />} disabled className="rounded-lg" />
+        <Input prefix={<NumberOutlined />} disabled className="rounded-lg w-full" />
       </Form.Item>
       <Form.Item
         label={<span style={labelStyle}>Name</span>}
@@ -37,7 +40,7 @@ const FormFields = ({ cardData }) => {
         rules={[{ required: true }]}
         className="mb-5"
       >
-        <Input prefix={<UserOutlined />} className="rounded-lg" />
+        <Input prefix={<UserOutlined />} className="rounded-lg w-full" />
       </Form.Item>
       <Form.Item
         label={<span style={labelStyle}>Short Description</span>}
@@ -48,7 +51,7 @@ const FormFields = ({ cardData }) => {
         ]}
         className="mb-5"
       >
-        <Input prefix={<FileTextOutlined />} className="rounded-lg" maxLength={200} />
+        <Input prefix={<FileTextOutlined />} className="rounded-lg w-full" maxLength={200} />
       </Form.Item>
       <Form.Item
         label={<span style={labelStyle}>Description</span>}
@@ -58,7 +61,7 @@ const FormFields = ({ cardData }) => {
         ]}
         className="mb-6"
       >
-        <TextArea rows={4} className="rounded-lg" maxLength={500} />
+        <TextArea rows={4} className="rounded-lg w-full" maxLength={500} />
       </Form.Item>
       <Form.Item>
         <div className="flex flex-row gap-3 mt-4 justify-start">

@@ -53,7 +53,7 @@ const Card = ({ name, image, onButtonClick, className = '', onImageClick, subCat
       >
         <Button
           type="primary"
-          className="rounded font-medium text-xs py-0.5 px-2 mt-2 border-0 bg-[var(--theme-color)] hover:bg-[var(--theme-color)]/90"
+          className="rounded font-normal text-xs py-0.5 px-2 mt-2 border-0 bg-[var(--theme-color)] hover:bg-[var(--theme-color)]/90"
           style={{ backgroundColor: color, borderColor: color }}
         >
           SUB CATEGORIES

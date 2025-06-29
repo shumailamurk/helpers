@@ -4,8 +4,8 @@ import AppSidebar from './Components/Layout/AppSidebar';
 import AppHeader from './Components/Layout/AppHeader';
 import { ThemeProvider } from './ThemeContext';
 
-import Services from './Components/services/services';
 import Categories from './Components/categories/sharedComponents';
+import Services from './Components/services';
 
 function Placeholder({ title }) {
   return (
@@ -20,7 +20,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', overflowX: 'hidden' }}>
           <AppSidebar />
           <div style={{ flex: 1 }}>
             <AppHeader />
