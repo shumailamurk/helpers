@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TableHandling from './Table/Table.handling';
+import TableHandling from './Table.handling';
 
 const Services = () => {
   return <TableHandling />;

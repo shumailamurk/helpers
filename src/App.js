@@ -5,7 +5,7 @@ import AppHeader from './Components/Layout/AppHeader';
 import { ThemeProvider } from './ThemeContext';
 
 import Categories from './Components/categories/sharedComponents';
-import Services from './Components/services';
+import Services from './Components/services/Table';
 
 function Placeholder({ title }) {
   return (
