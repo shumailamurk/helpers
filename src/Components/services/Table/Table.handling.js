@@ -3,6 +3,7 @@ import { Table, Input, Tag } from 'antd';
 import { useTheme } from '../../../ThemeContext';
 import { useTableData } from './Table.logic';
 import { SearchOutlined } from '@ant-design/icons';
+import { fetchCategories } from '../../../Components/categories/sharedComponents/categoryDataService';
 
 const { Search } = Input;
 

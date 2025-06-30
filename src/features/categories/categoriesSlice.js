@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import dummyData from '../../Components/categories/sharedComponents/dummyData.json';
+import { fetchCategories } from '../../Components/categories/sharedComponents/categoryDataService';
 
 const initialState = {
-  list: dummyData,
+  list: fetchCategories(),
   loading: false,
   error: null,
 };
