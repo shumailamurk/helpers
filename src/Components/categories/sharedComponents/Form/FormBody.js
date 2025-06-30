@@ -3,7 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import FormFields from './FormFields';
 import { useTheme } from '../../../../ThemeContext';
 
-const FormBody = ({ cardData, onClose }) => {
+const FormBody = ({ cardData, onClose, onAddSubCategory, onDeleteSubCategory, onDisableSubCategory, onUpdateCategory }) => {
   const { color } = useTheme();
   return (
     <div className="max-w-3xl w-full mx-auto px-4 md:px-8 overflow-hidden mt-2">
@@ -29,7 +29,7 @@ const FormBody = ({ cardData, onClose }) => {
         </button>
       </div>
       <div className="bg-gray-50 p-4">
-        <FormFields cardData={cardData} />
+        <FormFields cardData={cardData} onAddSubCategory={onAddSubCategory} onDeleteSubCategory={onDeleteSubCategory} onDisableSubCategory={onDisableSubCategory} onUpdateCategory={onUpdateCategory} onClose={onClose} />
       </div>
     </div>
   );

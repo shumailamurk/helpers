@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Drawer } from 'antd';
 import FormBody from './FormBody';
 
-const FormModal = ({ visible, onClose, cardData }) => {
+const FormModal = ({ visible, onClose, cardData, onAddSubCategory, onDeleteSubCategory, onDisableSubCategory, onUpdateCategory }) => {
   const [drawerWidth, setDrawerWidth] = useState(600);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const FormModal = ({ visible, onClose, cardData }) => {
       closable={false}
       rootClassName="custom-rounded-drawer"
     >
-      <FormBody cardData={cardData} onClose={onClose} />
+      <FormBody cardData={cardData} onClose={onClose} onAddSubCategory={onAddSubCategory} onDeleteSubCategory={onDeleteSubCategory} onDisableSubCategory={onDisableSubCategory} onUpdateCategory={onUpdateCategory} />
     </Drawer>
   );
 };

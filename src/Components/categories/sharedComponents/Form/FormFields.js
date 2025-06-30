@@ -8,7 +8,7 @@ import '../../../../../src/index.css';
 
 const { TextArea } = Input;
 
-const FormFields = ({ cardData }) => {
+const FormFields = ({ cardData, onAddSubCategory, onDeleteSubCategory, onDisableSubCategory, onUpdateCategory, onClose }) => {
   const { color } = useTheme();
   const labelStyle = {
     fontWeight: 600,
@@ -16,8 +16,40 @@ const FormFields = ({ cardData }) => {
     fontSize: 16,
   };
 
+  const handleFinish = (values) => {
+    if (onAddSubCategory && cardData.parent && !cardData.index) {
+      // Add mode
+      onAddSubCategory(cardData.parent, values);
+      if (onClose) onClose();
+      return;
+    }
+    if (onUpdateCategory && !cardData.parent) {
+      // Update main category
+      onUpdateCategory(cardData.name, values);
+      if (onClose) onClose();
+      return;
+    }
+    // You can add update logic for sub-category here if needed
+    if (onClose) onClose();
+  };
+
+  const handleDelete = () => {
+    if (onDeleteSubCategory && cardData.parent && cardData.name) {
+      onDeleteSubCategory(cardData.parent, cardData.name);
+    }
+    if (onClose) onClose();
+  };
+
+  const handleDisable = () => {
+    if (onDisableSubCategory && cardData.parent && cardData.name) {
+      onDisableSubCategory(cardData.parent, cardData.name);
+    }
+    if (onClose) onClose();
+  };
+
   return (
     <Form
+      key={cardData.name + (cardData.parent || '')}
       layout="vertical"
       initialValues={{
         index: cardData?.index || 0,
@@ -25,7 +57,17 @@ const FormFields = ({ cardData }) => {
         shortDescription: cardData?.shortDescription || '',
         description: cardData?.description || '',
       }}
+      onFinish={handleFinish}
     >
+      {cardData.parent && (
+        <Form.Item
+          label={<span style={labelStyle}>Category</span>}
+          name="parent"
+          className="mb-5"
+        >
+          <Input value={cardData.parent} disabled className="rounded-lg" />
+        </Form.Item>
+      )}
       <Form.Item
         label={<span style={labelStyle}>Index No</span>}
         name="index"
@@ -65,13 +107,13 @@ const FormFields = ({ cardData }) => {
       </Form.Item>
       <Form.Item>
         <div className="flex flex-row gap-3 mt-4 justify-start">
-          <Button type="primary" size="small" style={{ backgroundColor: color, borderColor: color }}>
+          <Button type="primary" size="small" htmlType="submit" style={{ backgroundColor: color, borderColor: color }}>
             Save
           </Button>
-          <Button size="small" ghost style={{ color, borderColor: color }}>
+          <Button size="small" ghost style={{ color, borderColor: color }} onClick={handleDisable}>
             Disable
           </Button>
-          <Button danger size="small">
+          <Button danger size="small" onClick={handleDelete}>
             Delete
           </Button>
         </div>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AppSidebar from './Components/Layout/AppSidebar';
 import AppHeader from './Components/Layout/AppHeader';
 import { ThemeProvider } from './ThemeContext';
+import { useSelector } from 'react-redux';
 
 import Categories from './Components/categories/sharedComponents';
 import Services from './Components/services/Table';

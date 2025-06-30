@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card as AntdCard, Button, Popover } from 'antd';
+import { Card as AntdCard, Button, Popover, Dropdown, Menu } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
 import { useTheme } from '../../../ThemeContext';
 
-const Card = ({ name, image, onButtonClick, className = '', onImageClick, subCategories = [], onSubCategoryClick }) => {
+const Card = ({ name, image, onButtonClick, className = '', onImageClick, subCategories = [], onSubCategoryClick, onMenuAction, onAddSubCategory, onDeleteSubCategory, onDisableSubCategory }) => {
   const { color } = useTheme();
   const [popoverOpen, setPopoverOpen] = React.useState(false);
 
@@ -29,6 +30,13 @@ const Card = ({ name, image, onButtonClick, className = '', onImageClick, subCat
     </div>
   );
 
+  const menu = (
+    <Menu onClick={({ key }) => onMenuAction && onMenuAction(key)}>
+      <Menu.Item key="add">Add Sub Category</Menu.Item>
+      <Menu.Item key="update">Update Category</Menu.Item>
+    </Menu>
+  );
+
   return (
     <AntdCard
       hoverable
@@ -41,9 +49,14 @@ const Card = ({ name, image, onButtonClick, className = '', onImageClick, subCat
         />
       }
       className={`rounded-xl shadow-md max-w-sm ${className}`}
-      bodyStyle={{ padding: 16 }}
+      bodyStyle={{ padding: 16, position: 'relative' }}
     >
-      <h3 className="mb-2 font-semibold text-base">{name}</h3>
+      <div className="flex justify-between items-center mb-2">
+        <h3 className="font-semibold text-base">{name}</h3>
+        <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
+          <Button type="text" icon={<EllipsisOutlined />} />
+        </Dropdown>
+      </div>
       <Popover
         content={popoverContent}
         trigger="click"
@@ -53,7 +66,7 @@ const Card = ({ name, image, onButtonClick, className = '', onImageClick, subCat
       >
         <Button
           type="primary"
-          className="rounded font-normal text-xs py-0.5 px-2 mt-2 border-0 bg-[var(--theme-color)] hover:bg-[var(--theme-color)]/90"
+          className="rounded font-medium text-xs py-0.5 px-2 mt-2 border-0 bg-[var(--theme-color)] hover:bg-[var(--theme-color)]/90"
           style={{ backgroundColor: color, borderColor: color }}
         >
           SUB CATEGORIES
