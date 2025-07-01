@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AppSidebar from './Components/Layout/AppSidebar';
-import AppHeader from './Components/Layout/AppHeader';
+// import AppSidebar from './Components/Layout/AppSidebar';
+// import AppHeader from './Components/Layout/AppHeader';
 import { ThemeProvider } from './ThemeContext';
 import { useSelector } from 'react-redux';
 
 
-import Services from './Components/services/Table';
-import { Categories } from './main/features/categories';
+// import Services from './Components/services/Table';
+import Categories from './main/features/categories';
 
 function Placeholder({ title }) {
   return (

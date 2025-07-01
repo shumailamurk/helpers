@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Cards/cards';
-import dummyData from '../Utilities/dummydata.json';
+import Card from '../Cards/cards';
+import dummyData from '../../Utilities/dummydata.json';
 
 const Categories = () => {
   return (
