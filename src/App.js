@@ -5,8 +5,9 @@ import AppHeader from './Components/Layout/AppHeader';
 import { ThemeProvider } from './ThemeContext';
 import { useSelector } from 'react-redux';
 
-import Categories from './Components/categories/sharedComponents';
+
 import Services from './Components/services/Table';
+import { Categories } from './main/features/categories';
 
 function Placeholder({ title }) {
   return (

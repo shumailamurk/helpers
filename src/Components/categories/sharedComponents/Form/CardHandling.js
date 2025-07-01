@@ -3,6 +3,10 @@ import Card from '../Card';
 import FormModal from './FormModal';
 
 const CardHandling = (props) => {
+
+  const {mainCategory  = {}} = props;
+
+
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [formMode, setFormMode] = useState(null); // 'add' or 'update'
@@ -31,7 +35,7 @@ const CardHandling = (props) => {
   if (formMode === 'add') {
     cardData = { name: '', parent: props.name };
   } else if (formMode === 'update') {
-    cardData = { name: props.name, parent: props.name };
+    cardData = {...mainCategory, isUpdate: true };
   } else if (selectedSubCategory) {
     cardData = { ...selectedSubCategory, parent: props.name };
   }

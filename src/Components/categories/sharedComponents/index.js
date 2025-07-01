@@ -58,6 +58,7 @@ const Categories = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 justify-items-center">
         {categories.map(item => (
           <CardHandling
+          mainCategory={item}
             key={item.id}
             name={item.name}
             image={item.image}

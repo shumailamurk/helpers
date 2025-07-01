@@ -5,6 +5,7 @@ import { useTheme } from '../../../../../src/ThemeContext';
 
 import 'antd/dist/reset.css';
 import '../../../../../src/index.css';
+import { updateCategory } from '../../../../features/categories/categoriesSlice';
 
 const { TextArea } = Input;
 
@@ -16,16 +17,25 @@ const FormFields = ({ cardData, onAddSubCategory, onDeleteSubCategory, onDisable
     fontSize: 16,
   };
 
+
+  const dispatch = useDispatch(); 
+  console.log(cardData,'cardData');
+
   const handleFinish = (values) => {
-    if (onAddSubCategory && cardData.parent && !cardData.index) {
+    if (!cardData.isUpdate && onAddSubCategory && cardData.parent && !cardData.index) {
       // Add mode
       onAddSubCategory(cardData.parent, values);
       if (onClose) onClose();
       return;
     }
-    if (onUpdateCategory && !cardData.parent) {
+    if (onUpdateCategory && cardData.isUpdate) {
       // Update main category
-      onUpdateCategory(cardData.name, values);
+
+
+    dispatch(updateCategory({ ...cardData, ...updatedData, id: category.id }));
+  
+      // dispatch(updateCategory(cardData.name, values));
+      // onUpdateCategory(cardData.name, values);
       if (onClose) onClose();
       return;
     }
@@ -45,6 +55,11 @@ const FormFields = ({ cardData, onAddSubCategory, onDeleteSubCategory, onDisable
       onDisableSubCategory(cardData.parent, cardData.name);
     }
     if (onClose) onClose();
+  };
+
+  const handleUpdateCategory = (oldName, updatedData) => {
+    console.log('Updating:', oldName, updatedData);
+    // ...rest of your code
   };
 
   return (
