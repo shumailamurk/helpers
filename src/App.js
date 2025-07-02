@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 
 import Services from './Components/services/Table';
-import { Categories } from './main/features/categories';
+import CategoriesRoot, { Categories } from './main/features/categories';
 
 function Placeholder({ title }) {
   return (
@@ -28,7 +28,7 @@ function App() {
             <AppHeader />
             <Routes>
               <Route path="/dashboard" element={<Placeholder title="Dashboard" />} />
-              <Route path="/categories" element={<Categories/>} />
+              <Route path="/categories" element={<CategoriesRoot/>} />
               <Route path="/services" element={<Services/>} />
               <Route path="/pricelist" element={<Placeholder title="Price List" />} />
               <Route path="/jobrequests" element={<Placeholder title="Job Requests" />} />

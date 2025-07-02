@@ -2,10 +2,10 @@ import React from 'react';
 import { Categories, Card, CardUI, FormsUI } from './components';
 
 // Main root component for categories feature
-const CategoriesRoot = (props) => {
+const Categories = (props) => {
   return <Categories {...props} />;
 };
 
-export default CategoriesRoot;
+export default Categories;
 export { Categories, Card, CardUI, FormsUI };
 // ...baaki exports (forms, reduxSlices, etc.) bhi yahan se kar sakte hain 
