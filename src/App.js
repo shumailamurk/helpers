@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AppSidebar from './Components/Layout/AppSidebar';
-import AppHeader from './Components/Layout/AppHeader';
+// import AppSidebar from './Components/Layout/AppSidebar';
+// import AppHeader from './Components/Layout/AppHeader';
 import { ThemeProvider } from './ThemeContext';
 import { useSelector } from 'react-redux';
 
 
-import Services from './Components/services/Table';
-import CategoriesRoot, { Categories } from './main/features/categories';
+// import Services from './Components/services/Table';
+import Categories from './main/features/categories';
 
 function Placeholder({ title }) {
   return (
@@ -28,7 +28,7 @@ function App() {
             <AppHeader />
             <Routes>
               <Route path="/dashboard" element={<Placeholder title="Dashboard" />} />
-              <Route path="/categories" element={<CategoriesRoot/>} />
+              <Route path="/categories" element={<Categories/>} />
               <Route path="/services" element={<Services/>} />
               <Route path="/pricelist" element={<Placeholder title="Price List" />} />
               <Route path="/jobrequests" element={<Placeholder title="Job Requests" />} />
