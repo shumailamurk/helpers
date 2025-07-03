@@ -1,0 +1,44 @@
+
+/* Service Table Custom Styles */
+
+.service-table-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.table-searchbar-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.service-table .ant-table-thead > tr > th {
+  background: var(--theme-color) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  height: 26px !important;
+  padding: 3px 6px !important;
+  border-bottom: 2px solid #e5e5e5 !important;
+  border-radius: 0 !important;
+}
+
+.service-table .ant-table-tbody > tr > td {
+  background: #fff;
+  font-size: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 26px;
+  padding: 3px 6px;
+}
+
+.service-table .ant-table-tbody > tr:hover > td {
+  background: #f5f7fa;
+}
+
+.service-table .ant-table-pagination {
+  margin: 16px 0 0 0;
+} 

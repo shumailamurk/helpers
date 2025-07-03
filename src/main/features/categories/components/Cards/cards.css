@@ -1,0 +1,36 @@
+/* Card UI CSS */
+
+.card-ui {
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  width: 260px;
+  max-width: 100%;
+}
+
+.card-ui-title {
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.card-ui-button {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 11px;
+  padding: 4px 10px;
+  height: 28px;
+  line-height: 1.2;
+  margin-top: 8px;
+  border: 0;
+}
+
+.card-ui-dots {
+  align-self: flex-end;
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+.card-ui-popover-content {
+  min-width: 160px;
+} 

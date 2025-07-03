@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card as AntdCard, Button, Popover, Dropdown, Menu } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
+import './cards.css';
 
 const CardUI = ({
   name,
@@ -16,7 +17,7 @@ const CardUI = ({
   color
 }) => {
   const popoverContent = (
-    <div className="min-w-[160px]">
+    <div className="card-ui-popover-content">
       {subCategories.length > 0 ? (
         subCategories.map((sub) => (
           <div
@@ -51,15 +52,16 @@ const CardUI = ({
           onClick={onImageClick}
         />
       }
-      className={`rounded-xl shadow-md max-w-sm ${className}`}
+      className={`card-ui shadow-md ${className}`}
       bodyStyle={{ padding: 16, position: 'relative' }}
     >
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="font-semibold text-base">{name}</h3>
+      <div className="flex justify-between items-end mb-2">
+        <h3 className="card-ui-title">{name}</h3>
         <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
-          <Button type="text" icon={<EllipsisOutlined />} />
+          <Button type="text" icon={<EllipsisOutlined />} className="card-ui-dots" />
         </Dropdown>
       </div>
+      <div className="flex flex-col items-start w-full">
       <Popover
         content={popoverContent}
         trigger="click"
@@ -69,13 +71,15 @@ const CardUI = ({
       >
         <Button
           type="primary"
-          className="rounded font-medium text-xs py-0.5 px-2 mt-2 border-0 bg-[var(--theme-color)] hover:bg-[var(--theme-color)]/90"
+            size="small"
+            className="card-ui-button bg-[var(--theme-color)] hover:bg-[var(--theme-color)]/90 mx-0"
           style={{ backgroundColor: color, borderColor: color }}
           onClick={onSubCategoriesButtonClick}
         >
           SUB CATEGORIES
         </Button>
       </Popover>
+      </div>
     </AntdCard>
   );
 };
