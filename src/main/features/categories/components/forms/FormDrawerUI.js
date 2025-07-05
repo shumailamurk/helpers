@@ -1,15 +1,17 @@
 import React from 'react';
 import { Drawer } from 'antd';
-import FormsUI from './forms/formsUI';
+import FormsUI from './formsUI';
 
-const CategoryDrawer = ({ open, onClose, selectedCard, formMode, parentCategoryId }) => (
+const FormDrawerUI = ({ open, onClose, selectedCard, formMode, parentCategoryId }) => (
   <Drawer
     title={null}
     placement="right"
     onClose={onClose}
     open={open}
-    width={500}
+    width={700}
     closable={false}
+    bodyStyle={{ background: '#fff', padding: 0 }}
+    style={{ borderRadius: '18px 0 0 18px' }}
   >
     {selectedCard && (
       <FormsUI
@@ -22,4 +24,4 @@ const CategoryDrawer = ({ open, onClose, selectedCard, formMode, parentCategoryI
   </Drawer>
 );
 
-export default CategoryDrawer; 
+export default FormDrawerUI; 

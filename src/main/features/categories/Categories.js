@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '../../../ThemeContext';
-import CategoryCardList from './components/CategoryCardList';
-import CategoryDrawer from './components/CategoryDrawer';
-import useCategoryUI from './hooks/useCategoryUI';
+import CategoryCardList from '../../features/categories/components/Cards/CategoryCardList';
+import FormDrawerUI from '../../features/categories/components/forms/FormDrawerUI';
+import useCategoryUI from './components/sharedComponents/generichooks/ReusableUIcustomhooks';
+import Card from './components/Cards/cards';
 
 const Categories = () => {
   const { color } = useTheme();
@@ -18,12 +19,13 @@ const Categories = () => {
     handleSubCategoryClick,
   } = useCategoryUI();
 
-  // Redux se categories list 
   const categories = useSelector(state => state.categories.list);
 
-  // 4-4 cards  2 rows
-  const firstRow = categories.slice(0, 4);
-  const secondRow = categories.slice(4, 8);
+  // Pad categories for grid balance (4 columns)
+  const paddedCategories = [...categories];
+  while (paddedCategories.length % 4 !== 0) {
+    paddedCategories.push({ id: `dummy-${paddedCategories.length}`, dummy: true });
+  }
 
   return (
     <div className="text-center">
@@ -34,23 +36,31 @@ const Categories = () => {
         Categories
       </h2>
       <div className="mb-6 mt-14">
-        <CategoryCardList
-          categories={firstRow}
-          onImageClick={handleImageClick}
-          onMenuAction={handleMenuAction}
-          onSubCategoryClick={(sub) => handleSubCategoryClick(sub, firstRow.find(card => card.subCategories.includes(sub)) || {})}
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-center max-w-6xl mx-auto">
+          {categories.map(card =>
+            card.dummy ? (
+              <div key={card.id} className="w-60 min-w-[160px] max-w-full invisible" />
+            ) : (
+              <Card
+                key={card.id}
+                name={card.name}
+                image={card.image}
+                subCategories={card.subCategories}
+                className="w-60 min-w-[160px] max-w-full"
+                onImageClick={() => handleImageClick(card)}
+                onMenuAction={(action) => handleMenuAction(action, card)}
+                onSubCategoryClick={(sub) => {
+                  const parentCard = categories.find(c =>
+                    c.subCategories.includes(sub)
+                  ) || {};
+                  handleSubCategoryClick(sub, parentCard);
+                }}
+              />
+            )
+          )}
+        </div>
       </div>
-      <div className="mt-8">
-        <CategoryCardList
-          categories={secondRow}
-          onImageClick={handleImageClick}
-          onMenuAction={handleMenuAction}
-          onSubCategoryClick={(sub) => handleSubCategoryClick(sub, secondRow.find(card => card.subCategories.includes(sub)) || {})}
-        />
-      </div>
-      {/* Drawer for Form */}
-      <CategoryDrawer
+      <FormDrawerUI
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         selectedCard={selectedCard}
